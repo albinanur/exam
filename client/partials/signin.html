@@ -1,0 +1,13 @@
+<div ng-controller='sessionController' class="container" >
+	<div class="sign-form">
+		<form ng-submit='login()' method="post">
+			Enter a Username to continue : <input type="text" name="username" ng-model='user.username'>
+			<input type="submit" value="Enter" class="btn btn-info">
+		</form>	
+		<div ng-if='errors' class="alert alert-danger">
+			<ul ng-repeat='error in errors'><li>{{error.message}}</li></ul>
+		</div>
+	</div>
+	
+	
+</div>
