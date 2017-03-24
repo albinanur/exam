@@ -7,6 +7,7 @@ UserSchema = new Schema({
 	 	maxlength: [20, 'Your username is too long'],
 	 	minlength: [3, 'Your username is too short']
 	},
+	_polls: [{type: Schema.Types.ObjectId, ref: 'Poll'}],
 	
 },{timestamps: true});
 

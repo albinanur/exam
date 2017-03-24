@@ -1,0 +1,35 @@
+<div ng-controller='sessionController'>
+	<div ng-controller='pollController'>
+		<a href="#!/dashboard">Go to Polls</a>
+		<h3>{{poll.question}}</h3>
+		<p>Click the Vote Button to choose one</p>
+		<table class="table table-striped">
+				<tr>
+					<th>Option</th>
+					<th>Current Count of Votes</th>
+					<th>Action</th>
+				</tr>
+				<tr>
+				<td>{{poll.option1}}</td>
+				<td>{{poll.option1_votes}}</a></td> 
+				<td><button ng-click='vote(poll._id, "option1_votes")'>Vote</button></td>
+				</tr>
+				<tr>
+				<td>{{poll.option2}}</td>
+				<td>{{poll.option2_votes}}</a></td>
+				<td><button ng-click='vote(poll._id, "option2_votes")'>Vote</button></td>
+				</tr>
+				<tr>
+				<td>{{poll.option3}}</td>
+				<td>{{poll.option3_votes}}</a></td>
+				<td><button ng-click='vote(poll._id, "option3_votes")'>Vote</button></td>
+				</tr>
+				<tr>
+				<td>{{poll.option4}}</td>
+				<td>{{poll.option4_votes}}</a></td>
+				<td><button ng-click='vote(poll._id, "option4_votes")'>Vote</button></td>
+				</tr>
+				
+			</table>
+	</div>
+</div>

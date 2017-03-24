@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Poll = mongoose.model('Poll');
 
 
 module.exports = (function(){

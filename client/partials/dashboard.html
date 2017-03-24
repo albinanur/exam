@@ -1,15 +1,31 @@
 <div ng-controller='sessionController' class="container">
-	<nav class="navbar navbar-default">
-	  	<div class="container-fluid">
-		    <div class="navbar-header">
-		      <a class="navbar-brand" href="#">Full Mean Wall</a>
-		    </div>
-		    <ul class="nav navbar-nav navbar-right">
-		     
-		      	<li><a href="#">Welcome, {{curUser.username}}</a></li>
-		      	<li><a class='btn btn-default' href="/logout">Logout</a></li>
-		    </ul>
-	  	</div>
-	</nav>
+	
+		<nav class="navbar navbar-default">
+		  	<div class="container-fluid">
+			    <ul class="nav navbar-nav navbar-right">
+			     	<li><a href="#!/create">Create a New Poll</a></li>
+			      	<li><a class='btn btn-default' href="/logout">Logout</a></li>
+			    </ul>
+		  	</div>
+		</nav>
+		<div ng-controller='pollController'>
+			<p>Current Polls: </p>
+			<table class="table table-striped">
+			<input type="text" ng-model='search_poll' placeholder="Search">
+				<tr>
+					<th>Name</th>
+					<th>Survey Question</th>
+					<th>Date Posted</th>
+					<th>Action</th>
+				</tr>
+				<tr ng-repeat='poll in polls | filter:search_poll track by $id(poll)'>
+				<td>{{poll._user.username[0].toUpperCase()+poll._user.username.slice(1)}}</td>
+				<td><a href="#!/poll/{{poll._id}}">{{poll.question}}</a></td>
+				<td>{{poll.createdAt | date:'mediumDate' }}</td>
+
+				<td><a ng-if="poll._user._id === curUser._id" ng-click = 'delete(poll._id)'>Delete</a></td>
+				</tr>
+			</table>
+		</div>
 	
 </div>
